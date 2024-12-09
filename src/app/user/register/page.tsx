@@ -1,16 +1,16 @@
 'use client'
-import toast from 'react-hot-toast';
-
+import Image from "next/image"
+import google from "../../assets/img/google.png"
+import twitter from "../../assets/img/x.png"
+import facebook from "../../assets/img/facebook.png"
+import iphone from "../../assets/img/iphone.png"
 import axios from "axios"
 import { useRouter } from "next/navigation";
 import { useFormik } from "formik"
-import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"
 import * as yup from "yup"
-import Signin from "../signin/page"
-
-
+import Signin from "../login/page"
 
 
 
@@ -26,15 +26,11 @@ export default function Register() {
      .then(response => {
         console.log(response)
         if(response?.data?.message ==="success"){
-          toast.success(response?.data?.message)
-          localStorage.setItem("tokenUser",response?.data?.token)
-          setDataApi(response?.data?.token)
           router.push("/login")
         }
       })
      .catch(error => {
         console.log(error)
-        toast.error(error.message)
         setApiError(error?.response?.data?.message)
       })
 
@@ -197,9 +193,21 @@ export default function Register() {
         className="rounded-[20px] p-[8px] w-[410px] h-[56px] text-[16px] text-white" type="submit">Create Account</button>
     </form>
 
+    <h4
+       className=" text-[#6C737F] "
+      >Or Continue with</h4>
+    <div className="flex gap-8 justify-center items-center mt-1">
+      <Image src={google} alt="Google" className="  rounded-[15.38]    w-[23.57px] h-[23.57px]" />
+      <Image src={twitter} alt="Twitter" className=" rounded-[15.38]  w-[23.57px] h-[23.57px]" />
+      <Image src={facebook} alt="Facebook" className=" rounded-[15.38]  w-[23.57px] h-[23.57px]" />
+      <Image src={iphone} alt="Facebook" className=" rounded-[15.38]  w-[23.57px] h-[23.57px]" />
+    </div>
     </div>
       </div>
+      
     </div>
+
+    
     </>
       
     

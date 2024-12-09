@@ -1,6 +1,6 @@
 'use client'
 import Link from "next/link";
-import Signin from "../signin/page";
+import Signin from "../login/page";
 import { useFormik } from "formik";
 import axios from "axios";
 import Image from "next/image"
@@ -14,7 +14,7 @@ export default function resetCode() {
         axios.post(`https://exam.elevateegy.com/api/v1/auth/verifyResetCode`,value)
         .then((response) => {
             if(response?.data.status === "Success"){
-                router.push("/resetPassword")
+                router.push("/user/resetPassword")
 
             }
             console.log(response);

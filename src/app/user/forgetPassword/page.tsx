@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import Signin from "../signin/page";
+import Signin from "../login/page";
 import { useFormik } from "formik";
 import axios from "axios";
 import { useRouter } from "next/navigation";
@@ -16,7 +16,7 @@ export default function forgetPassword() {
         .then((response) => {
             if(response.data.message === "success"){
                 toast.success("Check your email for the reset password link.")
-                router.push("/resetCode")
+                router.push("/user/resetCode")
 
             }
             console.log(response);

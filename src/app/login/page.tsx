@@ -1,13 +1,12 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import Signin from "../signin/page";
-import { useFormik } from "formik";
+import Signin from "../user/login/page";
 import axios from "axios";
+import LoginForm from "../user/login/page";
 
-axios
 
-export default function Login() {
+export default function signin() {
  
   
   return (
@@ -40,14 +39,14 @@ export default function Login() {
             Sign in
           </Link>
           <Link
-            href="/register"
+            href="/user/register"
             className="border px-4 font-light text-[#4461F2] rounded-2xl cursor-pointer"
           >
             Register
           </Link>
         
         </div>
-        <Signin/>
+        <LoginForm/>
       </div>
     </div>
   );
